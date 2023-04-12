@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/CategoryItem.dart';
+import 'package:food_app/CategoryScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,28 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: CategoryScreen(),
     );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text('Food APP'),
-        ),
-        body: Center(child: Text('data'))
-        // This trailing comma makes auto-formatting nicer for build methods.
-        );
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/category_item.dart';
 import 'package:food_app/category_screen.dart';
 
 void main() {
@@ -17,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: CategoryScreen(),
+      home: const CategoryScreen(),
     );
   }
 }

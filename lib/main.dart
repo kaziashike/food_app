@@ -14,10 +14,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Food App',
       theme: ThemeData(
-        primarySwatch: Colors.pink,
-        accentColor: Colors.amber,
-        canvasColor: Color.fromARGB(255, 224, 224, 224),
+        canvasColor: const Color.fromARGB(255, 224, 224, 224),
         fontFamily: 'Raleway',
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.pink)
+            .copyWith(secondary: Colors.amber),
       ),
       home: const CategoryScreen(),
     );

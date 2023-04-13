@@ -13,11 +13,15 @@ class CategoryScreen extends StatelessWidget {
         title: const Text('Food App'),
       ),
       body: GridView(
-        padding: EdgeInsets.all(14),
+        padding: const EdgeInsets.all(14),
         gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
             mainAxisSpacing: 20, crossAxisSpacing: 20, maxCrossAxisExtent: 200),
-        children: DUMMY_CATEGORIES.map((e) {
-          return CategoryItem(title: e.title, color: e.color);
+        children: dummy.map((e) {
+          return CategoryItem(
+            title: e.title,
+            color: e.color,
+            id: e.id,
+          );
         }).toList(),
       ),
     );

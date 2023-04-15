@@ -1,14 +1,18 @@
-import 'package:flutter/foundation.dart';
-
 enum Complexity {
+  // ignore: constant_identifier_names
   Simple,
+  // ignore: constant_identifier_names
   Challenging,
+  // ignore: constant_identifier_names
   Hard,
 }
 
 enum Affordability {
+  // ignore: constant_identifier_names
   Affordable,
+  // ignore: constant_identifier_names
   Pricey,
+  // ignore: constant_identifier_names
   Luxurious,
 }
 

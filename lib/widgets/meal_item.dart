@@ -1,48 +1,51 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/models/meal.dart';
+import '../models/meal.dart';
+import '../screens/meal_detail_screen.dart';
 
 class MealItem extends StatelessWidget {
+  final String mealId;
   final String imageURL;
   final String title;
   final int duration;
   final Complexity complexity;
   final Affordability affordability;
 
-  void selectMeal() {}
-  const MealItem(
-      {super.key,
-      required this.imageURL,
-      required this.title,
-      required this.duration,
-      required this.complexity,
-      required this.affordability});
+  void selectMeal(BuildContext context) {
+    Navigator.of(context)
+        .pushNamed(MealDetailScreen.routeName, arguments: mealId);
+  }
+
+  const MealItem({
+    super.key,
+    required this.mealId,
+    required this.imageURL,
+    required this.title,
+    required this.duration,
+    required this.complexity,
+    required this.affordability,
+  });
+  // ignore: non_constant_identifier_names
   String get Complexitytext {
     switch (complexity) {
       case Complexity.Simple:
         return 'Simple';
-        break;
       case Complexity.Challenging:
         return 'Challenging';
-        break;
       case Complexity.Hard:
         return 'Hard';
-        break;
       default:
         return 'Unknown';
     }
   }
 
-  String get Affordabilitytext {
+  String get affordabilitytext {
     switch (affordability) {
       case Affordability.Affordable:
         return 'Cheap';
-        break;
       case Affordability.Pricey:
         return 'Costly';
-        break;
       case Affordability.Luxurious:
         return 'Luxarious';
-        break;
       default:
         return 'Unknown';
     }
@@ -51,7 +54,7 @@ class MealItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => selectMeal(),
+      onTap: () => selectMeal(context),
       child: Card(
         elevation: 4,
         margin: const EdgeInsets.all(10),
@@ -80,7 +83,7 @@ class MealItem extends StatelessWidget {
                     color: Colors.black54,
                     child: Text(
                       title,
-                      style: TextStyle(fontSize: 26, color: Colors.white),
+                      style: const TextStyle(fontSize: 26, color: Colors.white),
                       softWrap: true,
                       overflow: TextOverflow.fade,
                     ),
@@ -95,23 +98,23 @@ class MealItem extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Icon(Icons.schedule),
-                      SizedBox(width: 6),
+                      const Icon(Icons.schedule),
+                      const SizedBox(width: 6),
                       Text('$duration min')
                     ],
                   ),
                   Row(
                     children: [
-                      Icon(Icons.work),
-                      SizedBox(width: 6),
+                      const Icon(Icons.work),
+                      const SizedBox(width: 6),
                       Text(Complexitytext)
                     ],
                   ),
                   Row(
                     children: [
-                      Icon(Icons.attach_money),
-                      SizedBox(width: 6),
-                      Text(Affordabilitytext)
+                      const Icon(Icons.attach_money),
+                      const SizedBox(width: 6),
+                      Text(affordabilitytext)
                     ],
                   ),
                 ],

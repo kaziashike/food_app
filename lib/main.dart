@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:food_app/screens/category_screen.dart';
+import './screens/category_screen.dart';
+import './screens/meal_detail_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,6 +21,11 @@ class MyApp extends StatelessWidget {
             .copyWith(secondary: Colors.amber),
       ),
       home: const CategoryScreen(),
+      routes: {
+        MealDetailScreen.routeName: (context) => const MealDetailScreen()
+      },
+      onUnknownRoute: (settings) =>
+          MaterialPageRoute(builder: (context) => const CategoryScreen()),
     );
   }
 }

@@ -16,6 +16,37 @@ class MealItem extends StatelessWidget {
       required this.duration,
       required this.complexity,
       required this.affordability});
+  String get Complexitytext {
+    switch (complexity) {
+      case Complexity.Simple:
+        return 'Simple';
+        break;
+      case Complexity.Challenging:
+        return 'Challenging';
+        break;
+      case Complexity.Hard:
+        return 'Hard';
+        break;
+      default:
+        return 'Unknown';
+    }
+  }
+
+  String get Affordabilitytext {
+    switch (affordability) {
+      case Affordability.Affordable:
+        return 'Cheap';
+        break;
+      case Affordability.Pricey:
+        return 'Costly';
+        break;
+      case Affordability.Luxurious:
+        return 'Luxarious';
+        break;
+      default:
+        return 'Unknown';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +54,7 @@ class MealItem extends StatelessWidget {
       onTap: () => selectMeal(),
       child: Card(
         elevation: 4,
-        margin: EdgeInsets.all(10),
+        margin: const EdgeInsets.all(10),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
         ),
@@ -32,7 +63,7 @@ class MealItem extends StatelessWidget {
             Stack(
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(16),
                       topRight: Radius.circular(16)),
                   child: Image.network(
@@ -60,12 +91,27 @@ class MealItem extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(20),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Row(
                     children: [
                       Icon(Icons.schedule),
                       SizedBox(width: 6),
                       Text('$duration min')
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Icon(Icons.work),
+                      SizedBox(width: 6),
+                      Text(Complexitytext)
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Icon(Icons.attach_money),
+                      SizedBox(width: 6),
+                      Text(Affordabilitytext)
                     ],
                   ),
                 ],

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import './screens/filter_screen.dart';
+import './screens/tabs_screen.dart';
 import './screens/category_screen.dart';
 import './screens/meal_detail_screen.dart';
 
@@ -20,9 +22,11 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.pink)
             .copyWith(secondary: Colors.amber),
       ),
-      home: const CategoryScreen(),
+      home: const TabsScreen(),
       routes: {
-        MealDetailScreen.routeName: (context) => const MealDetailScreen()
+        MealDetailScreen.routeName: (context) => const MealDetailScreen(),
+        FilterScreen.routeName: (context) => const FilterScreen(),
+        TabsScreen.routeName: (context) => const TabsScreen()
       },
       onUnknownRoute: (settings) =>
           MaterialPageRoute(builder: (context) => const CategoryScreen()),
